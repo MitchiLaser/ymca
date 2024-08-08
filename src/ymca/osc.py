@@ -77,6 +77,20 @@ class Osc:
     '''
 
     def _read_data(self, buffer):
+        """
+        Perform a read operation until a buffer is filled
+
+        Parameters
+        ----------
+        buffer : numpy array
+            The buffer to fill with data
+
+        Returns
+        -------
+        status: boolean
+            Returns True if the buffer was filled successfully, False if a timeout occurred.
+
+        """
         view = buffer.view(np.uint8)  # convert input buffer to numpy array of type uint8
         size = view.size  # Get the size of the buffer
         try:
@@ -89,6 +103,9 @@ class Osc:
             return False
 
     def _read(self):
+        """
+        Perform a read operation on the oscilloscope data
+        """
         self.update = False
         # send reset commands
         if self.reset_osc:
