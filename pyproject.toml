@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ymca"
+description = "Yet another Multi Channel Analyzer"
+# the list of authors is ordered alphabetically by the last name
+authors = [
+    { name="Michael Hohenstein", email="michael@hohenste.in" },
+]
+readme = "README.md"
+requires-python= ">=3.11"
+keywords = ["RedPitaya", "MCPHA", "MCA"]
+
+license = {text = "GPL3"}
+classifiers = [
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "Topic :: Education",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dynamic = ["version"]
+
+[tool.setuptools.dynamic]
+version = {attr = "ymca.__version__"}
+
+[project.optional-dependencies]
+dev = [
+    "flake8",
+    "black",
+    "isort",
+    "build",
+    "twine",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/MitchiLaser/ymca"
+"Repository" = "https://github.com/MitchiLaser/ymca"
+
+[tool.black]
+line-length = 150
+
+[tool.isort]
+profile = "black"
